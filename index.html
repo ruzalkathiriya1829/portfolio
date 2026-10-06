@@ -1,0 +1,500 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ruzal Kathiriya Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark violet page with soft glow blobs; About me leads (hero + about panel with an orbit of tech chips),
+   then live Google Play apps, work experience cards, other projects, skills, contact. Glass cards throughout. */
+:root{
+  --bg:#0a0616; --ink:#f3eeff; --muted:#b4a9cf; --line:rgba(167,139,250,.24);
+  --glass:rgba(255,255,255,.05); --glass-hi:rgba(255,255,255,.09);
+  --accent:#b79cff; --accent-deep:#7c3aed; --accent-glow:rgba(124,58,237,.38);
+  --font-display:"Patrick Hand","Outfit",system-ui,sans-serif;
+  --font-body:"Outfit",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-data:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(60% 38% at 10% 0%, rgba(124,58,237,.42), transparent 70%),
+    radial-gradient(45% 30% at 100% 12%, rgba(168,85,247,.24), transparent 70%);
+  background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;font-weight:300;-webkit-text-size-adjust:100%;
+}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1060px;margin-inline:auto;padding-inline:20px}
+main{position:relative;overflow:clip}
+.glow{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,var(--accent-glow),transparent 66%)}
+.glow.a{width:620px;height:620px;right:-260px;top:900px}
+.glow.b{width:560px;height:560px;left:-280px;top:2200px}
+.glow.c{width:620px;height:620px;right:-260px;top:3600px}
+section,.hero{position:relative}
+
+/* nav */
+.nav{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;padding:12px 20px;background:var(--glass);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(10px)}
+.logo{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1.5px solid var(--accent);color:var(--accent);font-family:var(--font-display);font-size:1.1rem;text-decoration:none;box-shadow:0 0 18px var(--accent-glow)}
+.nav ul{display:flex;gap:4px 24px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:400}
+.nav ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;gap:30px;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center;padding-block:56px 36px}
+.hello{margin:0 0 6px;font-family:var(--font-display);font-size:1.35rem;color:var(--accent)}
+h1{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(2.4rem,6.4vw,4rem);line-height:1.06;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent);position:relative;white-space:nowrap}
+h1 em::after{content:"";position:absolute;inset:-4px -10px;border:1.5px solid var(--accent);border-radius:50%;transform:rotate(-2deg);opacity:.8;pointer-events:none}
+.lede{margin:22px 0 0;max-width:33em;color:var(--muted);font-size:1.1rem}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;padding:11px 22px;border-radius:12px;font:inherit;font-weight:500;font-size:.96rem;text-decoration:none;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--accent-deep),#9d6bff);color:#fff;box-shadow:0 8px 28px var(--accent-glow)}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-ghost{background:var(--glass);color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--accent)}
+
+/* orbit */
+.orbit{position:relative;width:100%;max-width:340px;aspect-ratio:1;margin-inline:auto}
+.orbit .ring{position:absolute;border-radius:50%;border:1px solid var(--line)}
+.orbit .r1{inset:0}
+.orbit .r2{inset:17%}
+.orbit .r3{inset:33%;background:radial-gradient(circle,rgba(124,58,237,.4),transparent 70%);border-color:rgba(167,139,250,.4)}
+.orbit .core{position:absolute;inset:39%;display:grid;place-items:center;border-radius:50%;background:var(--glass-hi);border:1.5px solid var(--accent);color:var(--ink);font-family:var(--font-display);font-size:clamp(1.3rem,5vw,1.9rem);box-shadow:0 0 40px var(--accent-glow)}
+.chip{position:absolute;padding:4px 12px;border-radius:999px;background:rgba(20,12,40,.85);border:1px solid var(--line);font-size:.8rem;font-weight:500;white-space:nowrap;color:var(--ink)}
+.chip.c1{left:34%;top:-3%}
+.chip.c2{right:-3%;top:22%}
+.chip.c3{right:3%;bottom:14%}
+.chip.c4{left:30%;bottom:-3%}
+.chip.c5{left:-3%;bottom:30%}
+.chip.c6{left:2%;top:15%}
+@media (prefers-reduced-motion:no-preference){
+  .orbit .r3{animation:pulse 5s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.6}}
+}
+
+/* about panel */
+.about{display:grid;gap:26px;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);padding:30px;margin-block:0 8px}
+.about h2{margin:0 0 12px}
+.about p{margin:0 0 12px;color:var(--muted)}
+.about p b{color:var(--ink);font-weight:500}
+.stats{display:grid;gap:12px;align-content:start;margin:0;padding:0;list-style:none}
+.stats li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 18px;background:var(--glass);border:1px solid var(--line);border-radius:14px}
+.stats span{color:var(--muted);font-size:.93rem}
+.stats b{font-family:var(--font-display);font-weight:400;font-size:1.45rem;color:var(--accent);font-variant-numeric:tabular-nums;text-align:right}
+
+/* sections */
+section{padding-block:60px 4px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;margin-bottom:24px}
+h2{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,4vw,2.3rem);line-height:1.15;text-wrap:balance}
+h3{font-family:var(--font-display);font-weight:400}
+.sec-note{margin:0;color:var(--muted);font-size:.97rem;max-width:36em}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:18px;min-width:0}
+
+/* live apps */
+.apps{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+.app{padding:24px;display:flex;flex-direction:column;gap:14px}
+.app-top{display:flex;gap:14px;align-items:center;min-width:0}
+.mark{flex:none;width:54px;height:54px;border-radius:14px;background:linear-gradient(145deg,rgba(124,58,237,.55),rgba(157,107,255,.2));border:1px solid var(--line);display:grid;place-items:center;font-family:var(--font-display);font-size:1.3rem;color:var(--ink)}
+.app h3{margin:0;font-size:1.4rem;line-height:1.2}
+.cat{margin:2px 0 0;color:var(--muted);font-size:.85rem}
+.app p{margin:0;color:var(--muted);font-size:.97rem}
+.facts{display:flex;gap:6px 18px;flex-wrap:wrap;font-family:var(--font-data);font-size:.8rem;color:var(--ink)}
+.facts span{white-space:nowrap}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.tags li{font-size:.78rem;font-weight:400;padding:3px 11px;border-radius:999px;background:rgba(124,58,237,.22);border:1px solid var(--line);color:var(--ink)}
+.play{margin-top:auto;font-weight:500;font-size:.95rem;text-decoration:none}
+.play:hover{text-decoration:underline}
+
+/* apka sathi gallery */
+.feature-text{margin:0 0 14px;max-width:46em;color:var(--muted)}
+.shots{display:flex;gap:18px;overflow-x:auto;padding:6px 2px 16px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--accent-deep) transparent}
+.shots figure{margin:0;flex:0 0 min(214px,64vw);scroll-snap-align:start}
+.shots img{display:block;width:100%;height:auto;aspect-ratio:9/19;object-fit:cover;object-position:top;background:#000;border:1px solid var(--line);border-radius:24px;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+.shots figcaption{margin-top:10px;font-size:.88rem;color:var(--muted)}
+.shots figcaption b{display:block;color:var(--ink);font-weight:500}
+
+/* experience */
+.xp{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.xp article{padding:22px;display:flex;gap:16px;align-items:flex-start}
+.xp .mark{width:48px;height:48px;font-size:1.1rem}
+.xp h3{margin:0;font-size:1.35rem;line-height:1.2}
+.xp .org{color:var(--accent)}
+.when{margin:3px 0 8px;font-family:var(--font-data);font-size:.76rem;color:var(--muted)}
+.xp p{margin:0;color:var(--muted);font-size:.95rem}
+.xp .when{margin:3px 0 8px}
+
+/* other projects */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr))}
+.proj{padding:20px 22px;display:flex;flex-direction:column;gap:8px}
+.proj h3{margin:0;font-size:1.3rem}
+.proj p{margin:0;color:var(--muted);font-size:.94rem}
+.meta{font-family:var(--font-data);font-size:.74rem;color:var(--muted)}
+.proj .tags{margin-top:auto;padding-top:8px}
+
+/* skills */
+.skills{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.skill{padding:20px 22px}
+.skill h3{margin:0 0 10px;font-size:1.25rem;color:var(--accent)}
+.skill p{margin:0;font-size:.97rem;color:var(--muted)}
+
+/* education */
+.two{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.two .card{padding:22px 24px}
+.two h3{margin:0 0 8px;font-size:1.35rem;color:var(--accent)}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:flex;justify-content:space-between;gap:6px 18px;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--line)}
+.rows b{font-weight:500}
+.rows small{color:var(--muted);font-size:.86rem}
+.rows .yr{font-family:var(--font-data);font-size:.76rem;color:var(--muted);white-space:nowrap}
+.rows a{font-size:.86rem}
+
+/* contact */
+.contact{padding:28px;display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.contact h3{margin:0 0 6px;font-family:var(--font-data);font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.val{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0;overflow-wrap:anywhere}
+.copy{font:inherit;font-size:.8rem;font-weight:500;padding:3px 11px;border-radius:8px;border:1px solid var(--line);background:var(--glass-hi);color:var(--ink);cursor:pointer}
+.copy:hover{border-color:var(--accent);color:var(--accent)}
+.links{display:flex;gap:6px 18px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+footer{padding-block:44px 50px;color:var(--muted);font-size:.88rem}
+
+/* motion: subtle, and fully off for reduced-motion */
+.progress{display:none}
+.nav ul a{position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left}
+@media (prefers-reduced-motion:no-preference){
+  .nav ul a::after{transition:transform .25s ease}
+  .nav ul a:hover::after{transform:scaleX(1)}
+  .btn{transition:transform .2s ease,filter .2s ease,border-color .2s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .app,.proj,.xp article,.skill{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+  .shots img{transition:transform .3s ease}
+  @media (hover:hover){
+    .app:hover,.proj:hover,.xp article:hover,.skill:hover{transform:translateY(-4px);border-color:rgba(183,156,255,.55);box-shadow:0 14px 36px rgba(124,58,237,.24)}
+    .shots img:hover{transform:scale(1.025)}
+  }
+  @keyframes rise{from{opacity:.5;translate:0 16px}to{opacity:1;translate:0 0}}
+  .hero>div:first-child,.orbit{animation:rise .8s ease both}
+  .orbit{animation-delay:.12s}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .orbit .r1{border-style:dashed;animation:spin 80s linear infinite}
+  .orbit .r2{animation:spin 55s linear infinite reverse}
+  @keyframes bob{50%{transform:translateY(-6px)}}
+  .chip{animation:bob 6s ease-in-out infinite}
+  .chip.c2{animation-delay:-1s}.chip.c3{animation-delay:-2s}.chip.c4{animation-delay:-3s}.chip.c5{animation-delay:-4s}.chip.c6{animation-delay:-5s}
+  @supports (animation-timeline:view()){
+    @keyframes reveal{from{opacity:.4;translate:0 26px}to{opacity:1;translate:0 0}}
+    .card,.sec-head,.feature-text{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+  }
+  @supports (animation-timeline:scroll()){
+    .progress{display:block;position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:3px;z-index:20;background:linear-gradient(90deg,var(--accent-deep),var(--accent));transform:scaleX(0);transform-origin:0 50%;animation:grow linear both;animation-timeline:scroll(root)}
+    @keyframes grow{to{transform:scaleX(1)}}
+  }
+}
+
+@media (max-width:780px){
+  .hero,.about{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-block:40px 24px}
+  .about{padding:22px}
+  .orbit{max-width:290px}
+  section{padding-block:48px 2px}
+  .glow{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+<div class="progress" aria-hidden="true"></div>
+<div class="wrap">
+  <nav class="nav" aria-label="Sections">
+    <a class="logo" href="#home" aria-label="Home">RK</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main class="wrap">
+<div class="glow a"></div><div class="glow b"></div><div class="glow c"></div>
+
+<header class="hero" id="home">
+  <div>
+    <p class="hello">Hello! I am Ruzal Kathiriya</p>
+    <h1>A mobile developer who ships apps people <em>install</em>.</h1>
+    <p class="lede">I build Android and Flutter apps in Kotlin, Java and Dart, from REST APIs and Firebase to ads and offline storage. Right now I am at Craftyart, working on Brandbaba, Apna Post, PosterDada and Apka Sathi.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#apps">See live apps</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+  <div class="orbit" aria-hidden="true">
+    <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+    <div class="core">RK</div>
+    <span class="chip c1">Kotlin</span>
+    <span class="chip c2">Flutter</span>
+    <span class="chip c3">Firebase</span>
+    <span class="chip c4">Java</span>
+    <span class="chip c5">Figma</span>
+    <span class="chip c6">REST API</span>
+  </div>
+</header>
+
+<section class="about card" id="about">
+  <div>
+    <h2>About me</h2>
+    <p>I am a <b>Mobile Application Developer and Technical Educator</b> from Surat with 2+ years in Kotlin, Java, Flutter, C, C++ and Figma. I have built and shipped apps for Android, worked on Flutter for cross-platform products, and fixed iOS bugs with the help of AI tools.</p>
+    <p>Before moving full time into app development I taught BCA and MSc(IT) students, mentored <b>500+ students</b> on real app projects and was named Best Tutor of the Month. I am currently pursuing my MCA to design better, more user-centric mobile solutions.</p>
+    <p>Currently working at <b>Craftyart</b> as a Mobile Application Developer.</p>
+  </div>
+  <ul class="stats" aria-label="At a glance">
+    <li><span>Experience</span><b>2+ years</b></li>
+    <li><span>Apps on Google Play</span><b>3 live</b></li>
+    <li><span>Students mentored</span><b>500+</b></li>
+    <li><span>Platforms</span><b>Android · Flutter</b></li>
+  </ul>
+</section>
+
+<section id="apps">
+  <div class="sec-head">
+    <h2>Live on Google Play</h2>
+    <p class="sec-note">Apps I have worked on that anyone can install today.</p>
+  </div>
+  <div class="apps">
+    <article class="card app">
+      <div class="app-top">
+        <div class="mark" aria-hidden="true">BB</div>
+        <div><h3>Brandbaba Festival Posters</h3><p class="cat">Business · Craftyart</p></div>
+      </div>
+      <p>Create festival, sale and business posters from a library of ready-made templates, add your logo and contact details, and share them in a few taps.</p>
+      <div class="facts"><span>50K+ downloads</span><span>4.5 ★</span></div>
+      <ul class="tags"><li>Android</li><li>Flutter</li></ul>
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.brand.baba&amp;hl=en_IN" target="_blank" rel="noopener">View on Google Play →</a>
+    </article>
+
+    <article class="card app">
+      <div class="app-top">
+        <div class="mark" aria-hidden="true">DH</div>
+        <div><h3>DramaHub</h3><p class="cat">Entertainment · Skyline Infosys</p></div>
+      </div>
+      <p>A streaming app for short dramas with episode playback, search, watch history and saved shows. Content comes from a remote API, with ads configured remotely.</p>
+      <div class="facts"><span>500K+ downloads</span><span>4.5 ★</span></div>
+      <ul class="tags"><li>Kotlin</li><li>Retrofit</li><li>MVVM</li><li>AdMob</li></ul>
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.my.drama.box.reel.short.stream.tv.app&amp;hl=en_IN" target="_blank" rel="noopener">View on Google Play →</a>
+    </article>
+
+    <article class="card app">
+      <div class="app-top">
+        <div class="mark" aria-hidden="true">PD</div>
+        <div><h3>PosterDada</h3><p class="cat">Art &amp; Design · Craftyart</p></div>
+      </div>
+      <p>Daily festival posters, business ads and video status in one app, with thousands of templates and one-tap sharing to WhatsApp, Instagram and Facebook.</p>
+      <div class="facts"><span>1K+ downloads</span></div>
+      <ul class="tags"><li>Android</li><li>Flutter</li></ul>
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.posterdada&amp;hl=en_IN" target="_blank" rel="noopener">View on Google Play →</a>
+    </article>
+  </div>
+</section>
+
+<section id="apka-sathi">
+  <div class="sec-head">
+    <h2>Apka Sathi</h2>
+    <p class="sec-note">Craftyart · Android and Flutter</p>
+  </div>
+  <p class="feature-text">A short-video learning app for skills, government schemes and side income. It has a personalised feed, new releases, a library with watch history and saved videos, an AI assistant, and a PLUS subscription with a ₹1 trial. Scroll the screens below.</p>
+  <ul class="tags" style="margin-bottom:18px"><li>Android</li><li>Flutter</li><li>Dark and light theme</li><li>Subscriptions</li></ul>
+  <div class="shots" tabindex="0" role="group" aria-label="Apka Sathi screenshots">
+    <figure><img src="images/apka-home.webp" width="560" height="1167" loading="lazy" alt="Apka Sathi home screen with search, top categories and a For You video carousel"><figcaption><b>Home</b>Search, categories and a For You feed</figcaption></figure>
+    <figure><img src="images/apka-new.webp" width="560" height="1231" loading="lazy" alt="New Releases screen with videos grouped by Today, Yesterday and This Week"><figcaption><b>New releases</b>Videos grouped by day</figcaption></figure>
+    <figure><img src="images/apka-library.webp" width="560" height="1233" loading="lazy" alt="My Library screen with History and Saved tabs"><figcaption><b>My Library</b>Watch history and saved videos</figcaption></figure>
+    <figure><img src="images/apka-ai.webp" width="560" height="1163" loading="lazy" alt="AI Sathi assistant with suggested questions about loans, stock market and English"><figcaption><b>AI Sathi</b>Assistant with suggested questions</figcaption></figure>
+    <figure><img src="images/apka-chat.webp" width="560" height="1111" loading="lazy" alt="AI Sathi chat conversation"><figcaption><b>AI chat</b>Help with courses, notes and membership</figcaption></figure>
+    <figure><img src="images/apka-plans.webp" width="560" height="1143" loading="lazy" alt="PLUS subscription screen with plans, coupon code and a trial button"><figcaption><b>PLUS plans</b>Plans, coupon code and trial</figcaption></figure>
+    <figure><img src="images/apka-light.webp" width="560" height="1245" loading="lazy" alt="Apka Sathi home screen in light theme"><figcaption><b>Light theme</b>Switch between dark and light</figcaption></figure>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="sec-head"><h2>Work Experience</h2></div>
+  <div class="xp">
+    <article class="card">
+      <div class="mark" aria-hidden="true">CA</div>
+      <div>
+        <h3>Mobile Application Developer · <span class="org">Craftyart</span></h3>
+        <p class="when">Apr 2026 – Present</p>
+        <p>Develop and maintain apps in Java, Kotlin and Flutter: Brandbaba, Apna Post, PosterDada and Apka Sathi. Built a billing software app in Flutter, and fix iOS bugs with AI-assisted tooling.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="mark" aria-hidden="true">SI</div>
+      <div>
+        <h3>Application Developer · <span class="org">Skyline Infosys</span></h3>
+        <p class="when">May 2025 – Apr 2026 · Surat</p>
+        <p>Built Android apps in Kotlin with MVVM, Retrofit, Room, Firebase and AdMob. Delivered the Bank Balance Check app, the Drama &amp; Series app and a Calendar app.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="mark" aria-hidden="true">FL</div>
+      <div>
+        <h3>Freelance Mobile App Developer</h3>
+        <p class="when">Feb 2024 – Present · Surat</p>
+        <p>Architected a freelancing platform app with Kotlin, Firebase and MVVM, including secure authentication and payment gateway integration.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="mark" aria-hidden="true">EI</div>
+      <div>
+        <h3>Android Development Intern · <span class="org">Exomoon Infotech</span></h3>
+        <p class="when">Feb 2024 – Sep 2024 · Surat</p>
+        <p>Launched Android apps in Java, Kotlin and Firebase, turned Figma designs into screens, and cut crash rates by 20% through testing and debugging.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="mark" aria-hidden="true">VB</div>
+      <div>
+        <h3>Junior Teaching Assistant · <span class="org">Vishwabharti Girls College</span></h3>
+        <p class="when">Mar 2024 – May 2025 · Surat</p>
+        <p>Taught C, C++, Java and Android to BCA and MSc(IT) students, guided 500+ students on real app projects and ran 9+ workshops.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="mark" aria-hidden="true">IT</div>
+      <div>
+        <h3>Faculty · <span class="org">Innovative IT and Multimedia Institute</span></h3>
+        <p class="when">Mar 2023 – Apr 2024 · Surat</p>
+        <p>Ran coding sessions in C, C++ and Java for 100+ students and brought Figma-based UI/UX design into their projects. Named Best Tutor of the Month.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-head">
+    <h2>More projects</h2>
+    <p class="sec-note">Apps and systems built at work, as freelance projects and during my degree.</p>
+  </div>
+  <div class="grid">
+    <article class="card proj">
+      <h3>Apna Post</h3>
+      <div class="meta">Craftyart · 2026</div>
+      <p>Part of the Craftyart app family, built for both Android and Flutter.</p>
+      <ul class="tags"><li>Android</li><li>Flutter</li></ul>
+    </article>
+    <article class="card proj">
+      <h3>Apka Sathi</h3>
+      <div class="meta">Craftyart · 2026</div>
+      <p>A short-video learning app with an AI assistant and a PLUS subscription. Screens are shown above.</p>
+      <ul class="tags"><li>Android</li><li>Flutter</li></ul>
+    </article>
+    <article class="card proj">
+      <h3>Billing Software</h3>
+      <div class="meta">Craftyart · 2026</div>
+      <p>A billing application built from scratch in Flutter.</p>
+      <ul class="tags"><li>Flutter</li><li>Dart</li></ul>
+    </article>
+    <article class="card proj">
+      <h3>SkyInterior</h3>
+      <div class="meta">Nov 2024 – Jan 2025</div>
+      <p>Connects users directly with interior designers, with no broker in between. Google and Facebook sign-in, design ideas by room, and profiles stored in Firebase.</p>
+      <ul class="tags"><li>Kotlin</li><li>Firebase Auth</li><li>Realtime DB</li></ul>
+    </article>
+    <article class="card proj">
+      <h3>Bank Balance Check</h3>
+      <div class="meta">Skyline Infosys</div>
+      <p>Lets users check their bank balance securely through a simple interface.</p>
+      <ul class="tags"><li>Kotlin</li><li>MVVM</li></ul>
+    </article>
+    <article class="card proj">
+      <h3>Calendar App</h3>
+      <div class="meta">Skyline Infosys</div>
+      <p>A smart calendar app with reminders and scheduling features.</p>
+      <ul class="tags"><li>Android</li><li>Kotlin</li></ul>
+    </article>
+    <article class="card proj">
+      <h3>Tourism</h3>
+      <div class="meta">Aug – Nov 2024</div>
+      <p>A travel app for exploring destinations, booking tours and reading travel guides.</p>
+      <ul class="tags"><li>Android</li></ul>
+    </article>
+    <article class="card proj">
+      <h3>BPMS</h3>
+      <div class="meta">Mar – May 2024</div>
+      <p>A business process management system with workflow automation and real-time analytics dashboards.</p>
+      <ul class="tags"><li>Java</li><li>SQL</li></ul>
+    </article>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-head"><h2>Skills</h2></div>
+  <div class="skills">
+    <div class="card skill"><h3>Languages</h3><p>Kotlin, Java, Dart, C, C++, SQL, HTML</p></div>
+    <div class="card skill"><h3>Mobile</h3><p>Android SDK, Flutter, MVVM, Room, Material Design, iOS bug fixing</p></div>
+    <div class="card skill"><h3>Backend &amp; data</h3><p>REST APIs, Retrofit, JSON, Firebase, SQLite</p></div>
+    <div class="card skill"><h3>Tools</h3><p>Android Studio, Git and GitHub, Figma, AdMob</p></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="two">
+    <div class="card">
+      <h3>Education</h3>
+      <ul class="rows">
+        <li><span><b>MCA</b><br><small>Amity University, Noida (Distance Learning)</small></span><span class="yr">2024 – Present</span></li>
+        <li><span><b>BCA</b><br><small>VBG College, affiliated with VNSGU, Surat</small></span><span class="yr">2021 – 2024</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Certifications</h3>
+      <ul class="rows">
+        <li><span><b>Introduction to Android Mobile App Development</b><br><a href="https://coursera.org/share/4b036a8e24004b321cc2b1f56854a35b" target="_blank" rel="noopener">Coursera certificate</a></span><span class="yr">Jun 2023</span></li>
+        <li><span><b>Version Control</b><br><a href="https://coursera.org/share/0b89b7e27ad79650f0dfd11f4e168697" target="_blank" rel="noopener">Coursera certificate</a></span><span class="yr">Jul 2023</span></li>
+        <li><span><b>TCS iON Career Edge – Young Professional</b><br><a href="https://drive.google.com/file/d/1MqkxRWZUkc0nOWFR-79Rf5ub58jHRReW/view?pli=1" target="_blank" rel="noopener">View certificate</a></span><span class="yr">Jun 2023</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sec-head"><h2>Contact</h2><p class="sec-note">Open to Android and Flutter roles.</p></div>
+  <div class="card contact">
+    <div>
+      <h3>Email</h3>
+      <p class="val"><span id="email">ruzalkathiriya2906@gmail.com</span><button class="copy" type="button" data-copy="#email">Copy</button></p>
+    </div>
+    <div>
+      <h3>Phone</h3>
+      <p class="val"><span id="phone">+91 93286 09560</span><button class="copy" type="button" data-copy="#phone">Copy</button></p>
+    </div>
+    <div>
+      <h3>Elsewhere</h3>
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/ruzal-kathiriya-3a3097258/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/ruzalkathiriya1829" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.behance.net/ruzalkathiriya" target="_blank" rel="noopener">Behance</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">Ruzal Kathiriya · Surat, Gujarat, India</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var el=document.querySelector(btn.getAttribute('data-copy'));
+    var done=function(){var t=btn.textContent;btn.textContent='Copied';setTimeout(function(){btn.textContent=t},1500)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';setTimeout(function(){btn.textContent='Copy'},1500)};
+    try{navigator.clipboard.writeText(el.textContent).then(done,fallback)}catch(e){fallback()}
+  });
+});
+</script>
+
+</body></html>
